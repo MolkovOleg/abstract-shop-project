@@ -1,0 +1,4 @@
+countryman:
+  services:
+    catalogue:
+      url: http://localhost:54321

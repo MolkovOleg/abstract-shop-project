@@ -1,0 +1,18 @@
+= REST API сервиса обратной связи
+:toc: left
+
+== Отзывы о товарах
+
+=== Создание отзыва о товаре
+
+.Тело запроса
+include::{snippets}/feedback/product_comments/createProductComment/request-body.adoc[]
+
+.Свойства запроса
+include::{snippets}/feedback/product_comments/createProductComment/request-fields.adoc[]
+
+.Тело ответа
+include::{snippets}/feedback/product_comments/createProductComment/response-body.adoc[]
+
+.Свойства ответа
+include::{snippets}/feedback/product_comments/createProductComment/response-fields.adoc[]

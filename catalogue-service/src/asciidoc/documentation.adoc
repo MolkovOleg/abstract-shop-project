@@ -1,0 +1,12 @@
+= REST API каталога
+:toc: right
+
+== REST API товара
+
+=== Получение товара по id
+
+.Тело ответа
+include::{snippets}/catalog/products/getProductById/response-body.adoc[]
+
+.Свойства ответа
+include::{snippets}/catalog/products/getProductById/response-fields.adoc[]

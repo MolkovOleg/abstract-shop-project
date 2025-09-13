@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Наши товары &ndash; Магазин</title>
+</head>
+<body>
+<a th:href="@{/customer/products/list}">&larr; Все товары</a><br>
+<h1>Избранные товары</h1>
+<form>
+    <label>Фильтр: <input type="text" name="filter" th:value="${filter}">
+        <button type="submit">Найти</button>
+    </label>
+</form>
+<ul>
+    <li th:each="product : ${products}">
+        <strong>
+            <a th:text="${product.title}"
+               th:href="@{/customer/products/{productId}(productId=${product.id})}"></a>
+        </strong>
+        <p th:text="${product.details}"></p>
+    </li>
+</ul>
+</body>
+</html>

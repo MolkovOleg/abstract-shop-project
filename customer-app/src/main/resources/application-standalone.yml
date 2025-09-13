@@ -1,0 +1,23 @@
+shop:
+  services:
+    feedback:
+      url: http://localhost:8083
+    catalogue:
+      url: http://localhost:8081
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8082/realms/shop
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            client-id: customer-app
+            client-secret: l4Qg8vIMnofiOWwKBbfug3YvtyVrctrD
+            scope:
+              - openid
+              - view_catalogue
+server:
+  port: 8084
