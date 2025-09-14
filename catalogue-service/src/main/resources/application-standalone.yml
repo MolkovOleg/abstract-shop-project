@@ -1,25 +1,48 @@
 spring:
+  boot:
+    admin:
+      client:
+        enabled: true
+        instance:
+          name: catalogue-service
+          service-host-type: ip
+        url: http://localhost:8085
+
   datasource:
     url: jdbc:postgresql://localhost:5432/catalogue
     username: catalogue
     password: catalogue
+
   flyway:
     schemas:
       - public
       - catalogue
   jpa:
     show-sql: true
+
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8082/realms/shop
+      client:
+        registration:
+          keycloak:
+            client-id: catalogue-service-metrics-client
+            client-secret: 1CU9fldgvemiBtd7f71NSI1sa9K04PME
+            authorization-grant-type: client_credentials
+            scope:
+              - metrics_server
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8082/realms/shop
 
 springdoc:
   swagger-ui:
     oauth:
       client-id: catalogue-service-swagger-ui
       use-pkce-with-authorization-code-grant: true
+
 keycloak:
   uri: http://localhost:8082
 
@@ -28,3 +51,14 @@ server:
 logging:
   level:
     sql: info
+
+management:
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
