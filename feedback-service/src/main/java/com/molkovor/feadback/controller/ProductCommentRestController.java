@@ -3,6 +3,8 @@ package com.molkovor.feadback.controller;
 import com.molkovor.feadback.controller.dto.NewProductCommentDto;
 import com.molkovor.feadback.entity.ProductComment;
 import com.molkovor.feadback.service.ProductCommentService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +27,9 @@ public class ProductCommentRestController {
     private final ProductCommentService productCommentService;
 
     @GetMapping("by-productId/{productId:\\d+}")
+    @Operation(
+            security = @SecurityRequirement(name = "keycloak")
+    )
     public Flux<ProductComment> findAllProductCommentsByProductId(@PathVariable("productId") int productId) {
 
         return productCommentService.findAllProductCommentsByProductId(productId);
