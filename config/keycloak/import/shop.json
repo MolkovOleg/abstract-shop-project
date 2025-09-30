@@ -421,7 +421,7 @@
     } ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-shop" ],
+    "realmRoles" : [ "default-roles-shop", "ROLE_CUSTOMER" ],
     "notBefore" : 0,
     "groups" : [ "/Customers" ]
   }, {
@@ -444,7 +444,7 @@
     } ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-shop" ],
+    "realmRoles" : [ "default-roles-shop", "ROLE_MANAGER" ],
     "notBefore" : 0,
     "groups" : [ "/Managers" ]
   }, {
@@ -593,6 +593,748 @@
     "nodeReRegistrationTimeout" : 0,
     "defaultClientScopes" : [ "web-origins", "acr", "profile", "roles", "email" ],
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
+  }, {
+    "clientId": "catalogue-service-swagger-ui",
+    "name": "",
+    "description": "",
+    "rootUrl": "http://localhost:8081/swagger-ui/",
+    "adminUrl": "http://localhost:8081/swagger-ui/",
+    "baseUrl": "",
+    "surrogateAuthRequired": false,
+    "enabled": true,
+    "alwaysDisplayInConsole": false,
+    "clientAuthenticatorType": "client-secret",
+    "redirectUris": [
+      "http://localhost:8081/swagger-ui/*"
+    ],
+    "webOrigins": [
+      "http://localhost:8081"
+    ],
+    "notBefore": 0,
+    "bearerOnly": false,
+    "consentRequired": false,
+    "standardFlowEnabled": true,
+    "implicitFlowEnabled": false,
+    "directAccessGrantsEnabled": false,
+    "serviceAccountsEnabled": false,
+    "publicClient": true,
+    "frontchannelLogout": true,
+    "protocol": "openid-connect",
+    "attributes": {
+      "oidc.ciba.grant.enabled": "false",
+      "oauth2.device.authorization.grant.enabled": "false",
+      "display.on.consent.screen": "false",
+      "backchannel.logout.session.required": "true",
+      "backchannel.logout.revoke.offline.tokens": "false"
+    },
+    "authenticationFlowBindingOverrides": {},
+    "fullScopeAllowed": true,
+    "nodeReRegistrationTimeout": -1,
+    "defaultClientScopes": [
+      "web-origins",
+      "acr",
+      "profile",
+      "roles",
+      "email"
+    ],
+    "optionalClientScopes": [
+      "edit_catalogue",
+      "address",
+      "phone",
+      "offline_access",
+      "metrics_server",
+      "view_catalogue",
+      "metrics",
+      "microprofile-jwt"
+    ],
+    "access": {
+      "view": true,
+      "configure": true,
+      "manage": true
+    }
+  }, {
+    "clientId": "catalogue-service-metrics-client",
+    "name": "",
+    "description": "",
+    "rootUrl": "",
+    "adminUrl": "",
+    "baseUrl": "",
+    "surrogateAuthRequired": false,
+    "enabled": true,
+    "alwaysDisplayInConsole": false,
+    "clientAuthenticatorType": "client-secret",
+    "secret": "NP73Nazavhal8oGPJA1dRKhiUYnehEFN",
+    "redirectUris": [
+      "/*"
+    ],
+    "webOrigins": [
+      "/*"
+    ],
+    "notBefore": 0,
+    "bearerOnly": false,
+    "consentRequired": false,
+    "standardFlowEnabled": false,
+    "implicitFlowEnabled": false,
+    "directAccessGrantsEnabled": false,
+    "serviceAccountsEnabled": true,
+    "publicClient": false,
+    "frontchannelLogout": true,
+    "protocol": "openid-connect",
+    "attributes": {
+      "oidc.ciba.grant.enabled": "false",
+      "oauth2.device.authorization.grant.enabled": "false",
+      "client.secret.creation.time": "1758142133",
+      "backchannel.logout.session.required": "true",
+      "backchannel.logout.revoke.offline.tokens": "false"
+    },
+    "authenticationFlowBindingOverrides": {},
+    "fullScopeAllowed": true,
+    "nodeReRegistrationTimeout": -1,
+    "protocolMappers": [
+      {
+        "name": "Client Host",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientHost",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientHost",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "name": "Client ID",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "client_id",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "client_id",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "name": "Client IP Address",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientAddress",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientAddress",
+          "jsonType.label": "String"
+        }
+      }
+    ],
+    "defaultClientScopes": [
+      "web-origins",
+      "acr",
+      "profile",
+      "roles",
+      "email"
+    ],
+    "optionalClientScopes": [
+      "edit_catalogue",
+      "address",
+      "phone",
+      "offline_access",
+      "metrics_server",
+      "view_catalogue",
+      "metrics",
+      "microprofile-jwt"
+    ],
+    "access": {
+      "view": true,
+      "configure": true,
+      "manage": true
+    }
+  }, {
+    "clientId": "feedback-service-swagger-ui",
+    "name": "",
+    "description": "",
+    "rootUrl": "http:/localhost:8083/swagger-ui/",
+    "adminUrl": "http:/localhost:8083/swagger-ui/",
+    "baseUrl": "",
+    "surrogateAuthRequired": false,
+    "enabled": true,
+    "alwaysDisplayInConsole": false,
+    "clientAuthenticatorType": "client-secret",
+    "redirectUris": [
+      "http:/localhost:8083/swagger-ui/*"
+    ],
+    "webOrigins": [
+      "http:/localhost:8083"
+    ],
+    "notBefore": 0,
+    "bearerOnly": false,
+    "consentRequired": false,
+    "standardFlowEnabled": true,
+    "implicitFlowEnabled": false,
+    "directAccessGrantsEnabled": false,
+    "serviceAccountsEnabled": false,
+    "publicClient": true,
+    "frontchannelLogout": true,
+    "protocol": "openid-connect",
+    "attributes": {
+      "oidc.ciba.grant.enabled": "false",
+      "oauth2.device.authorization.grant.enabled": "false",
+      "display.on.consent.screen": "false",
+      "backchannel.logout.session.required": "true",
+      "backchannel.logout.revoke.offline.tokens": "false"
+    },
+    "authenticationFlowBindingOverrides": {},
+    "fullScopeAllowed": true,
+    "nodeReRegistrationTimeout": -1,
+    "defaultClientScopes": [
+      "web-origins",
+      "acr",
+      "profile",
+      "roles",
+      "email"
+    ],
+    "optionalClientScopes": [
+      "edit_catalogue",
+      "address",
+      "phone",
+      "offline_access",
+      "metrics_server",
+      "view_catalogue",
+      "metrics",
+      "microprofile-jwt"
+    ],
+    "access": {
+      "view": true,
+      "configure": true,
+      "manage": true
+    }
+  }, {
+    "clientId": "feedback-service-metrics-client",
+    "name": "",
+    "description": "",
+    "rootUrl": "",
+    "adminUrl": "",
+    "baseUrl": "",
+    "surrogateAuthRequired": false,
+    "enabled": true,
+    "alwaysDisplayInConsole": false,
+    "clientAuthenticatorType": "client-secret",
+    "secret": "sUvzQTO7QfCjhG1vuNuaD2tOdfzyVt6F",
+    "redirectUris": [
+      "/*"
+    ],
+    "webOrigins": [
+      "/*"
+    ],
+    "notBefore": 0,
+    "bearerOnly": false,
+    "consentRequired": false,
+    "standardFlowEnabled": false,
+    "implicitFlowEnabled": false,
+    "directAccessGrantsEnabled": false,
+    "serviceAccountsEnabled": true,
+    "publicClient": false,
+    "frontchannelLogout": true,
+    "protocol": "openid-connect",
+    "attributes": {
+      "oidc.ciba.grant.enabled": "false",
+      "oauth2.device.authorization.grant.enabled": "false",
+      "client.secret.creation.time": "1758142260",
+      "backchannel.logout.session.required": "true",
+      "backchannel.logout.revoke.offline.tokens": "false"
+    },
+    "authenticationFlowBindingOverrides": {},
+    "fullScopeAllowed": true,
+    "nodeReRegistrationTimeout": -1,
+    "protocolMappers": [
+      {
+        "name": "Client ID",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "client_id",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "client_id",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "name": "Client Host",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientHost",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientHost",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "name": "Client IP Address",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientAddress",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientAddress",
+          "jsonType.label": "String"
+        }
+      }
+    ],
+    "defaultClientScopes": [
+      "web-origins",
+      "acr",
+      "profile",
+      "roles",
+      "email"
+    ],
+    "optionalClientScopes": [
+      "edit_catalogue",
+      "address",
+      "phone",
+      "offline_access",
+      "metrics_server",
+      "view_catalogue",
+      "metrics",
+      "microprofile-jwt"
+    ],
+    "access": {
+      "view": true,
+      "configure": true,
+      "manage": true
+    }
+  }, {
+    "clientId": "customer-app-metrics-service",
+    "name": "",
+    "description": "",
+    "rootUrl": "",
+    "adminUrl": "",
+    "baseUrl": "",
+    "surrogateAuthRequired": false,
+    "enabled": true,
+    "alwaysDisplayInConsole": false,
+    "clientAuthenticatorType": "client-secret",
+    "secret": "S0vpvCyvgwtSOpm4lThztMKQVltnaf3f",
+    "redirectUris": [
+      "/*"
+    ],
+    "webOrigins": [
+      "/*"
+    ],
+    "notBefore": 0,
+    "bearerOnly": false,
+    "consentRequired": false,
+    "standardFlowEnabled": false,
+    "implicitFlowEnabled": false,
+    "directAccessGrantsEnabled": false,
+    "serviceAccountsEnabled": true,
+    "publicClient": false,
+    "frontchannelLogout": true,
+    "protocol": "openid-connect",
+    "attributes": {
+      "oidc.ciba.grant.enabled": "false",
+      "oauth2.device.authorization.grant.enabled": "false",
+      "client.secret.creation.time": "1758142296",
+      "backchannel.logout.session.required": "true",
+      "backchannel.logout.revoke.offline.tokens": "false"
+    },
+    "authenticationFlowBindingOverrides": {},
+    "fullScopeAllowed": true,
+    "nodeReRegistrationTimeout": -1,
+    "protocolMappers": [
+      {
+        "name": "Client Host",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientHost",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientHost",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "name": "Client IP Address",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientAddress",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientAddress",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "name": "Client ID",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "client_id",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "client_id",
+          "jsonType.label": "String"
+        }
+      }
+    ],
+    "defaultClientScopes": [
+      "web-origins",
+      "acr",
+      "profile",
+      "roles",
+      "email"
+    ],
+    "optionalClientScopes": [
+      "edit_catalogue",
+      "address",
+      "phone",
+      "offline_access",
+      "metrics_server",
+      "view_catalogue",
+      "metrics",
+      "microprofile-jwt"
+    ],
+    "access": {
+      "view": true,
+      "configure": true,
+      "manage": true
+    }
+  }, {
+    "clientId": "manager-app-metrics-service",
+    "name": "",
+    "description": "",
+    "rootUrl": "",
+    "adminUrl": "",
+    "baseUrl": "",
+    "surrogateAuthRequired": false,
+    "enabled": true,
+    "alwaysDisplayInConsole": false,
+    "clientAuthenticatorType": "client-secret",
+    "secret": "QxPYGK49LX0z88AuZZVzch3H2nXqgliv",
+    "redirectUris": [
+      "/*"
+    ],
+    "webOrigins": [
+      "/*"
+    ],
+    "notBefore": 0,
+    "bearerOnly": false,
+    "consentRequired": false,
+    "standardFlowEnabled": false,
+    "implicitFlowEnabled": false,
+    "directAccessGrantsEnabled": false,
+    "serviceAccountsEnabled": true,
+    "publicClient": false,
+    "frontchannelLogout": true,
+    "protocol": "openid-connect",
+    "attributes": {
+      "oidc.ciba.grant.enabled": "false",
+      "oauth2.device.authorization.grant.enabled": "false",
+      "client.secret.creation.time": "1758142218",
+      "backchannel.logout.session.required": "true",
+      "backchannel.logout.revoke.offline.tokens": "false"
+    },
+    "authenticationFlowBindingOverrides": {},
+    "fullScopeAllowed": true,
+    "nodeReRegistrationTimeout": -1,
+    "protocolMappers": [
+      {
+        "name": "Client IP Address",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientAddress",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientAddress",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "name": "Client Host",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientHost",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientHost",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "name": "Client ID",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "client_id",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "client_id",
+          "jsonType.label": "String"
+        }
+      }
+    ],
+    "defaultClientScopes": [
+      "web-origins",
+      "acr",
+      "profile",
+      "roles",
+      "email"
+    ],
+    "optionalClientScopes": [
+      "edit_catalogue",
+      "address",
+      "phone",
+      "offline_access",
+      "metrics_server",
+      "view_catalogue",
+      "metrics",
+      "microprofile-jwt"
+    ],
+    "access": {
+      "view": true,
+      "configure": true,
+      "manage": true
+    }
+  }, {
+    "clientId": "admin-service",
+    "name": "",
+    "description": "",
+    "rootUrl": "http://localhost:8085",
+    "adminUrl": "",
+    "baseUrl": "",
+    "surrogateAuthRequired": false,
+    "enabled": true,
+    "alwaysDisplayInConsole": false,
+    "clientAuthenticatorType": "client-secret",
+    "secret": "tuhhRaS7anUrZ2gKhvRBrl3nCjaN9cks",
+    "redirectUris": [
+      "http://localhost:8085/*"
+    ],
+    "webOrigins": [
+      "/*"
+    ],
+    "notBefore": 0,
+    "bearerOnly": false,
+    "consentRequired": false,
+    "standardFlowEnabled": true,
+    "implicitFlowEnabled": false,
+    "directAccessGrantsEnabled": false,
+    "serviceAccountsEnabled": true,
+    "publicClient": false,
+    "frontchannelLogout": true,
+    "protocol": "openid-connect",
+    "attributes": {
+      "oidc.ciba.grant.enabled": "false",
+      "client.secret.creation.time": "1758141654",
+      "backchannel.logout.session.required": "true",
+      "oauth2.device.authorization.grant.enabled": "false",
+      "display.on.consent.screen": "false",
+      "backchannel.logout.revoke.offline.tokens": "false"
+    },
+    "authenticationFlowBindingOverrides": {},
+    "fullScopeAllowed": true,
+    "nodeReRegistrationTimeout": -1,
+    "protocolMappers": [
+      {
+        "name": "Client ID",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "client_id",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "client_id",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "name": "Client Host",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientHost",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientHost",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "name": "Client IP Address",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientAddress",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientAddress",
+          "jsonType.label": "String"
+        }
+      }
+    ],
+    "defaultClientScopes": [
+      "web-origins",
+      "acr",
+      "profile",
+      "roles",
+      "email"
+    ],
+    "optionalClientScopes": [
+      "edit_catalogue",
+      "address",
+      "phone",
+      "offline_access",
+      "view_catalogue",
+      "metrics",
+      "microprofile-jwt"
+    ],
+    "access": {
+      "view": true,
+      "configure": true,
+      "manage": true
+    }
+  }, {
+    "clientId": "customer-app",
+    "name": "",
+    "description": "",
+    "rootUrl": "http://localhost:8084",
+    "adminUrl": "http://localhost:8084",
+    "baseUrl": "",
+    "surrogateAuthRequired": false,
+    "enabled": true,
+    "alwaysDisplayInConsole": false,
+    "clientAuthenticatorType": "client-secret",
+    "secret": "LzljkUkRFtoGYJSGlsHFRoFEzfSG9mYs",
+    "redirectUris": [
+      "http://localhost:8084/*"
+    ],
+    "webOrigins": [
+      "http://localhost:8084"
+    ],
+    "notBefore": 0,
+    "bearerOnly": false,
+    "consentRequired": false,
+    "standardFlowEnabled": true,
+    "implicitFlowEnabled": false,
+    "directAccessGrantsEnabled": false,
+    "serviceAccountsEnabled": true,
+    "publicClient": false,
+    "frontchannelLogout": true,
+    "protocol": "openid-connect",
+    "attributes": {
+      "oidc.ciba.grant.enabled": "false",
+      "oauth2.device.authorization.grant.enabled": "false",
+      "client.secret.creation.time": "1758143856",
+      "backchannel.logout.session.required": "true",
+      "backchannel.logout.revoke.offline.tokens": "false"
+    },
+    "authenticationFlowBindingOverrides": {},
+    "fullScopeAllowed": true,
+    "nodeReRegistrationTimeout": -1,
+    "protocolMappers": [
+      {
+        "name": "Client ID",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "client_id",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "client_id",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "name": "Client Host",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientHost",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientHost",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "name": "Client IP Address",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientAddress",
+          "introspection.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientAddress",
+          "jsonType.label": "String"
+        }
+      }
+    ],
+    "defaultClientScopes": [
+      "web-origins",
+      "acr",
+      "profile",
+      "roles",
+      "email"
+    ],
+    "optionalClientScopes": [
+      "edit_catalogue",
+      "address",
+      "phone",
+      "offline_access",
+      "metrics_server",
+      "view_catalogue",
+      "metrics",
+      "microprofile-jwt"
+    ],
+    "access": {
+      "view": true,
+      "configure": true,
+      "manage": true
+    }
   }, {
     "id" : "fb7be8db-cc4c-4a5b-88b5-04e36434a719",
     "clientId" : "manager-app",

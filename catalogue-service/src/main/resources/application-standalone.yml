@@ -29,7 +29,7 @@ spring:
         registration:
           keycloak:
             client-id: catalogue-service-metrics-client
-            client-secret: 1CU9fldgvemiBtd7f71NSI1sa9K04PME
+            client-secret: NP73Nazavhal8oGPJA1dRKhiUYnehEFN
             authorization-grant-type: client_credentials
             scope:
               - metrics_server

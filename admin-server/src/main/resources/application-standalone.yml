@@ -17,11 +17,19 @@ spring:
             scope:
               - metrics
             client-id: admin-service
-            client-secret: Geoug6RDSnkKgZ9xxw2AOkPKcUdCpuXv
+            client-secret: tuhhRaS7anUrZ2gKhvRBrl3nCjaN9cks
           login:
             provider: keycloak
             scope:
               - metrics
               - openid
             client-id: admin-service
-            client-secret: Geoug6RDSnkKgZ9xxw2AOkPKcUdCpuXv
+            client-secret: tuhhRaS7anUrZ2gKhvRBrl3nCjaN9cks
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - prometheus

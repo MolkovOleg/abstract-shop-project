@@ -28,14 +28,14 @@ spring:
         registration:
           keycloak:
             client-id: customer-app
-            client-secret: l4Qg8vIMnofiOWwKBbfug3YvtyVrctrD
+            client-secret: LzljkUkRFtoGYJSGlsHFRoFEzfSG9mYs
             scope:
               - openid
               - view_catalogue
           metrics:
             provider: keycloak
             client-id: customer-app-metrics-service
-            client-secret: HJs5HVpW0iTebXe5tT1Yoj5tjeV2szQJ
+            client-secret: S0vpvCyvgwtSOpm4lThztMKQVltnaf3f
             authorization-grant-type: client_credentials
             scope:
               - metrics_server

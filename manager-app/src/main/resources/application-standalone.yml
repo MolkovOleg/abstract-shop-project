@@ -35,7 +35,7 @@ spring:
           metrics:
             provider: keycloak
             client-id: manager-app-metrics-service
-            client-secret: XVK9punD6DGqnN52AOk9QDHV6wIQGzTG
+            client-secret: QxPYGK49LX0z88AuZZVzch3H2nXqgliv
             authorization-grant-type: client_credentials
             scope:
               - metrics_server

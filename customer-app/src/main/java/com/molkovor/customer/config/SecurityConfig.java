@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
+import org.springframework.security.web.server.authentication.RedirectServerAuthenticationSuccessHandler;
 import org.springframework.security.web.server.context.NoOpServerSecurityContextRepository;
 
 import static org.springframework.security.web.server.util.matcher.ServerWebExchangeMatchers.pathMatchers;
@@ -16,6 +17,7 @@ public class SecurityConfig {
     @Bean
     @Priority(0)
     public SecurityWebFilterChain metricsSecurityWebFilterChain(ServerHttpSecurity http) {
+
         return http
                 .securityMatcher(pathMatchers("/actuator/**"))
                 .authorizeExchange(customizer ->
@@ -32,7 +34,9 @@ public class SecurityConfig {
         return http
                 .authorizeExchange(customizer -> customizer.anyExchange().authenticated())
                 .oauth2Client(Customizer.withDefaults())
-                .oauth2Login(Customizer.withDefaults())
+                .oauth2Login(customizer -> customizer
+                        .authenticationSuccessHandler(
+                                new RedirectServerAuthenticationSuccessHandler("/customer/products/list")))
                 .build();
     }
 }

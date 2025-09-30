@@ -26,6 +26,7 @@ public class SecurityBeans {
     @Priority(0)
     public SecurityFilterChain metricsSecurityFilterChain(HttpSecurity http) throws Exception {
         return http
+                .securityMatcher("/actuator/**")
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/actuator/**").hasAuthority("SCOPE_metrics")
                         .anyRequest().denyAll())
@@ -42,7 +43,8 @@ public class SecurityBeans {
         return http
                 .authorizeHttpRequests(authRequest -> authRequest
                         .anyRequest().hasRole("MANAGER"))
-                .oauth2Login(Customizer.withDefaults())
+                .oauth2Login(customizer -> customizer
+                        .defaultSuccessUrl("/catalogue/products/list", true))
                 .oauth2Client(Customizer.withDefaults())
                 .build();
     }

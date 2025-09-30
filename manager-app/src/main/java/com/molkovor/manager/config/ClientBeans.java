@@ -2,7 +2,6 @@ package com.molkovor.manager.config;
 
 import com.molkovor.manager.client.RestClientProductsRestClientImpl;
 import com.molkovor.manager.config.security.OAuth2ClientHttpRequestInterceptor;
-import de.codecentric.boot.admin.client.config.ClientProperties;
 import de.codecentric.boot.admin.client.registration.BlockingRegistrationClient;
 import de.codecentric.boot.admin.client.registration.RegistrationClient;
 import org.springframework.beans.factory.annotation.Value;
