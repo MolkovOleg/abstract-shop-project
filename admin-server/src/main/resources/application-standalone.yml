@@ -6,7 +6,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8082/realms/shop
+          issuer-uri: http://192.168.0.65:8082/realms/shop
       client:
         provider:
           keycloak:

@@ -2,6 +2,7 @@ package com.molkovor.catalogue.config;
 
 import de.codecentric.boot.admin.client.registration.BlockingRegistrationClient;
 import de.codecentric.boot.admin.client.registration.RegistrationClient;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +19,7 @@ public class ClientBeans {
 
 
     @Bean
+    @ConditionalOnProperty(name = "spring.boot.admin.client.enabled", havingValue = "true")
     public RegistrationClient registrationClient(
             ClientRegistrationRepository clientRegistrationRepository,
             OAuth2AuthorizedClientService authorizedClientService) {

@@ -42,7 +42,7 @@ public class SecurityBeans {
                 .authorizeHttpRequests(customizer ->
                         customizer.requestMatchers("/instances", "instances/*")
                                 .hasAuthority("SCOPE_metrics_server")
-                                .requestMatchers("/actuator/**").permitAll()
+                                .requestMatchers("/actuator/**").hasAuthority("SCOPE_metrics")
                                 .anyRequest().denyAll())
                 .sessionManagement(customizer ->
                         customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
