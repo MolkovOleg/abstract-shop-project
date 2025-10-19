@@ -52,6 +52,7 @@ public class SecurityBeans {
     @Bean
     public OAuth2UserService<OidcUserRequest, OidcUser> oAuth2UserService() {
         OidcUserService oidcUserService = new OidcUserService();
+
         return userRequest -> {
             OidcUser user = oidcUserService.loadUser(userRequest);
             List<GrantedAuthority> authorities =
