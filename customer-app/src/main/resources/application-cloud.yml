@@ -1,0 +1,71 @@
+server:
+  port: 8084
+
+shop:
+  services:
+    feedback:
+      url: lb://feedback-service
+    catalogue:
+      url: lb://catalogue-service
+
+address:
+  home: 192.168.0.135
+  work: 10.10.50.201
+
+spring:
+  application:
+    name: customer-app-service
+  boot:
+    admin:
+      client:
+        enabled: false
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://${address.work}:8082/realms/shop
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://${address.work}:8082/realms/shop
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            client-id: customer-app
+            client-secret: LzljkUkRFtoGYJSGlsHFRoFEzfSG9mYs
+            scope:
+              - openid
+              - view_catalogue
+          metrics:
+            provider: keycloak
+            client-id: customer-app
+            client-secret: LzljkUkRFtoGYJSGlsHFRoFEzfSG9mYs
+            authorization-grant-type: client_credentials
+            scope:
+              - metrics_server
+          discovery:
+            provider: keycloak
+            client-id: customer-app
+            client-secret: LzljkUkRFtoGYJSGlsHFRoFEzfSG9mYs
+            authorization-grant-type: client_credentials
+            scope:
+              - discovery
+
+management:
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://${address.work}:8761/eureka/

@@ -37,13 +37,13 @@ public class SecurityBeans {
                                 .requestMatchers(HttpMethod.POST, "/instances")
                                 .requestMatchers(HttpMethod.DELETE, "/instances/*")
                                 .requestMatchers("/actuator/**"))
-                .oauth2ResourceServer(customizer ->
-                        customizer.jwt(Customizer.withDefaults()))
-                .authorizeHttpRequests(customizer ->
-                        customizer.requestMatchers("/instances", "instances/*")
-                                .hasAuthority("SCOPE_metrics_server")
-                                .requestMatchers("/actuator/**").hasAuthority("SCOPE_metrics")
-                                .anyRequest().denyAll())
+                .oauth2ResourceServer(customizer -> customizer
+                        .jwt(Customizer.withDefaults()))
+                .authorizeHttpRequests(customizer -> customizer
+                        .requestMatchers("/instances", "instances/*")
+                        .hasAuthority("SCOPE_metrics_server")
+                        .requestMatchers("/actuator/**").hasAuthority("SCOPE_metrics")
+                        .anyRequest().denyAll())
                 .sessionManagement(customizer ->
                         customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(CsrfConfigurer::disable)
@@ -56,8 +56,8 @@ public class SecurityBeans {
         return http
                 .oauth2Client(Customizer.withDefaults())
                 .oauth2Login(Customizer.withDefaults())
-                .authorizeHttpRequests(authorize ->
-                        authorize.anyRequest().authenticated())
+                .authorizeHttpRequests(auth -> auth.
+                        anyRequest().authenticated())
                 .build();
     }
 }

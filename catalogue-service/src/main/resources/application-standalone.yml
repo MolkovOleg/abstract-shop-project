@@ -26,7 +26,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://192.168.0.117:8082/realms/shop
+          issuer-uri: http://192.168.0.128:8082/realms/shop
       client:
         registration:
           keycloak:
@@ -38,7 +38,7 @@ spring:
               - metrics
         provider:
           keycloak:
-            issuer-uri: http://192.168.0.117:8082/realms/shop
+            issuer-uri: http://192.168.0.128:8082/realms/shop
 
 springdoc:
   swagger-ui:
@@ -67,7 +67,7 @@ management:
         include: '*'
   zipkin:
     tracing:
-      endpoint: http://192.168.0.117:9411/api/v2/spans
+      endpoint: http://192.168.0.128:9411/api/v2/spans
   tracing:
     sampling:
       probability: 1.0

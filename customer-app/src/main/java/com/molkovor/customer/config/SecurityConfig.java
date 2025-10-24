@@ -34,9 +34,7 @@ public class SecurityConfig {
         return http
                 .authorizeExchange(customizer -> customizer.anyExchange().authenticated())
                 .oauth2Client(Customizer.withDefaults())
-                .oauth2Login(customizer -> customizer
-                        .authenticationSuccessHandler(
-                                new RedirectServerAuthenticationSuccessHandler("/customer/products/list")))
+                .oauth2Login(Customizer.withDefaults())
                 .build();
     }
 }

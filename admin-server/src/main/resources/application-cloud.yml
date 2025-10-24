@@ -1,0 +1,55 @@
+server:
+  port: 8085
+
+address:
+  home: 192.168.0.135
+  work: 10.10.50.201
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://${address.work}:8082/realms/shop
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://${address.work}:8082/realms/shop
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            authorization-grant-type: client_credentials
+            scope:
+              - metrics
+            client-id: admin-service
+            client-secret: tuhhRaS7anUrZ2gKhvRBrl3nCjaN9cks
+          login:
+            provider: keycloak
+            scope:
+              - metrics
+              - openid
+            client-id: admin-service
+            client-secret: tuhhRaS7anUrZ2gKhvRBrl3nCjaN9cks
+          discovery:
+            provider: keycloak
+            client-id: admin-service
+            client-secret: tuhhRaS7anUrZ2gKhvRBrl3nCjaN9cks
+            authorization-grant-type: client_credentials
+            scope:
+              - discovery
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - prometheus
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://${address.work}:8761/eureka/
+    register-with-eureka: false

@@ -9,6 +9,8 @@ import de.codecentric.boot.admin.client.registration.RegistrationClient;
 import io.micrometer.observation.ObservationRegistry;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerExchangeFilterFunction;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -17,7 +19,6 @@ import org.springframework.security.oauth2.client.ReactiveOAuth2AuthorizedClient
 import org.springframework.security.oauth2.client.registration.ReactiveClientRegistrationRepository;
 import org.springframework.security.oauth2.client.web.reactive.function.client.ServerOAuth2AuthorizedClientExchangeFilterFunction;
 import org.springframework.security.oauth2.client.web.server.ServerOAuth2AuthorizedClientRepository;
-import org.springframework.web.reactive.function.client.ClientRequestObservationConvention;
 import org.springframework.web.reactive.function.client.DefaultClientRequestObservationConvention;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -25,6 +26,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class ClientBeans {
 
     @Bean
+    @LoadBalanced
     @Scope("prototype")
     public WebClient.Builder shopServicesWebClientBuilder(
             ReactiveClientRegistrationRepository clientRegistrationRepository,
@@ -74,7 +76,7 @@ public class ClientBeans {
     }
 
     @Bean
-    @ConditionalOnProperty(name = "spring.boot.admin.client.enabled", havingValue = "true")
+    @ConditionalOnProperty(name = "spring.boot.admin.client.enabled", havingValue = "true", matchIfMissing = true)
     public RegistrationClient registrationClient(
             ClientProperties clientProperties,
             ReactiveClientRegistrationRepository clientRegistrationRepository,

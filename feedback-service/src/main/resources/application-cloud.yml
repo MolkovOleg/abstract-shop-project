@@ -1,0 +1,69 @@
+server:
+  port: 8083
+
+address:
+  home: 192.168.0.135
+  work: 10.10.50.201
+
+spring:
+  application:
+    name: feedback-service
+  boot:
+    admin:
+      client:
+        enabled: false
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/feedback
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://${address.work}:8082/realms/shop
+      client:
+        registration:
+          keycloak:
+            client-id: feedback-service
+            client-secret: sUvzQTO7QfCjhG1vuNuaD2tOdfzyVt6F
+            authorization-grant-type: client_credentials
+            scope:
+              - metrics_server
+          discovery:
+            provider: keycloak
+            client-id: feedback-service
+            client-secret: sUvzQTO7QfCjhG1vuNuaD2tOdfzyVt6F
+            authorization-grant-type: client_credentials
+            scope:
+              - discovery
+        provider:
+          keycloak:
+            issuer-uri: http://${address.work}:8082/realms/shop
+
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: feedback-service-swagger-ui
+      use-pkce-with-authorization-code-grant: true
+
+keycloak:
+    uri: http://localhost:8082
+
+management:
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true

@@ -1,0 +1,33 @@
+server:
+  port: 8761
+
+address:
+  home: 192.168.0.135
+  work: 10.10.50.201
+
+eureka:
+  instance:
+    hostname: ${address.work}
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            user-name-attribute: preferred_username
+            issuer-uri: http://${address.work}:8082/realms/shop
+        registration:
+          keycloak:
+            client-id: eureka-service
+            client-secret: Aqbj6H1MJOWPBHsIKwtag8gAwdtmpoN3
+            scope:
+              - openid
+              - microprofile-jwt
+      resourceserver:
+        jwt:
+          issuer-uri: http://${address.work}:8082/realms/shop

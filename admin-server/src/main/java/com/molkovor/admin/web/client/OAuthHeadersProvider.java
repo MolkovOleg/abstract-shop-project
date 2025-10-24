@@ -13,7 +13,6 @@ public class OAuthHeadersProvider implements HttpHeadersProvider {
 
     private final OAuth2AuthorizedClientManager authorizedClientManager;
 
-
     @Override
     public HttpHeaders getHeaders(Instance instance) {
         OAuth2AuthorizedClient authorizedClient = authorizedClientManager.authorize(

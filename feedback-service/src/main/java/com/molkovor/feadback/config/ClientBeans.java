@@ -3,6 +3,7 @@ package com.molkovor.feadback.config;
 import de.codecentric.boot.admin.client.config.ClientProperties;
 import de.codecentric.boot.admin.client.registration.ReactiveRegistrationClient;
 import de.codecentric.boot.admin.client.registration.RegistrationClient;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,7 @@ public class ClientBeans {
 
 
     @Bean
+    @ConditionalOnProperty(name = "spring.boot.admin.client.enabled", havingValue = "true")
     public RegistrationClient registrationClient(
             ReactiveClientRegistrationRepository clientRegistrationRepository,
             ReactiveOAuth2AuthorizedClientService authorizedClientService,
